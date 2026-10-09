@@ -43,7 +43,7 @@ class ActorListSerializer(ActorSerializer):
 
 
 class ActorRetrieveSerializer(ActorSerializer):
-    full_name = serializers.CharField(source="actor.full_name", read_only=True)
+    full_name = serializers.CharField(read_only=True)
 
 
 class CinemaHallSerializer(serializers.ModelSerializer):
@@ -117,7 +117,7 @@ class MovieSessionListSerializer(MovieSessionSerializer):
         ]
 
 
-class MovieSessionRetrieveSerializer(MovieSessionSerializer):
+class MovieSessionRetrieveSerializer(MovieRetrieveSerializer):
     movie = MovieListSerializer(many=False, read_only=True)
     cinema_hall = CinemaHallListSerializer(many=False, read_only=True)
 
